@@ -13,6 +13,8 @@ var (
 )
 
 func init() {
+	// Command Ling Flag는 명령행 프로그램의 옵션을 처리하기 위해서 사용한다.
+	// 예를 들어 wc -l에서 -l 이 command line flag다.
 	flag.StringVar(&cidr, "c", "", "the CIDR address")
 }
 
@@ -68,6 +70,7 @@ func main() {
 	the netmask for the network.
  */
 func wildcard(mask net.IP) net.IP {
+	fmt.Printf(mask.String())
 	var ipVal net.IP
 	for _, octet := range mask {
 		ipVal = append(ipVal, ^octet)
